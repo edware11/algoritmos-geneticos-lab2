@@ -4,8 +4,8 @@
 **Docente:** Fabio Alejandro Sastoque Rincón
 
 ## Integrantes
-- (Tu nombre) — Ejercicios 1 y 2
-- (Nombre de tu compañero) — Ejercicios 3 y 4
+- EDWAR FONTECHA — Ejercicios 1 y 2
+- DANIEL CHAVEZ — Ejercicios 3 y 4
 
 ## Descripción
 Este repositorio implementa un Algoritmo Genético (AG) genérico con genotipo binario,
@@ -53,7 +53,5 @@ Resultado obtenido: candidatos {1, 3, 5, 8, 9}, tamaño = 5, habilidad total = 4
 
 ---
 ## Ejercicio 3 — Cruzamiento de Dos Puntos
-*(Pendiente: lo completa el compañero)*
 
 ## Ejercicio 4 — Análisis de Resultados
-*(Pendiente: lo completa el compañero)*
