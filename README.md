@@ -53,7 +53,45 @@ Resultado obtenido: candidatos {1, 3, 5, 8, 9}, tamaño = 5, habilidad total = 4
 
 ---
 ## Ejercicio 3 — Cruzamiento de Dos Puntos
-*(Pendiente: lo completa el compañero)*
+
+Se amplió la clase `AlgoritmoGenetico` agregando el parámetro `crossover_method`
+(`'one_point'` por defecto, o `'two_point'`), sin alterar el comportamiento existente
+de los Ejercicios 1 y 2. El nuevo método `_cruzar_dos_puntos` selecciona dos índices
+aleatorios de corte (p1 < p2) e intercambia el segmento **central** del cromosoma
+entre ambos padres, dejando los extremos intactos.
+
+Demostración con padres opuestos (`0000000000` y `1111111111`):
+
+| Cruzamiento | Padre 1 | Padre 2 | Hijo 1 | Hijo 2 |
+|---|---|---|---|---|
+| Un punto | `0000000000` | `1111111111` | `0000000111` | `1111111000` |
+| Dos puntos | `0000000000` | `1111111111` | `0000011110` | `1111100001` |
+
+Se observa cómo en el cruzamiento de dos puntos el bloque de bits intercambiado
+queda "encajado" en el centro del cromosoma, mientras que en el de un punto el
+cambio ocurre desde un único punto hacia uno de los extremos.
 
 ## Ejercicio 4 — Análisis de Resultados
-*(Pendiente: lo completa el compañero)*
+
+Se ejecutó el problema de la Mochila (Módulo 3) dos veces, con la misma semilla
+aleatoria, cambiando únicamente el `PENALTY_FACTOR`:
+
+| Escenario | Factor de Penalización | Mejor Fitness | Peso Total | Capacidad Máx. | ¿Solución Válida? |
+|---|---|---|---|---|---|
+| Penalización Suave | 5 | 250.00 | 25 | 15 | **No** — excede la capacidad |
+| Penalización Fuerte | 50 | 240.00 | 15 | 15 | **Sí** |
+
+**Análisis:** con una penalización suave (factor 5), el castigo por exceder la
+capacidad resulta insuficiente frente a la ganancia de valor que aporta agregar
+más ítems. En consecuencia, el AG converge (desde la generación 2-3) hacia una
+solución con fitness aparentemente más alto (250), pero que en realidad **viola
+la restricción** de peso máximo (25 sobre un límite de 15). Con una penalización
+fuerte (factor 50), el castigo supera cualquier beneficio de excederse en peso,
+por lo que el AG converge a una solución con fitness ligeramente menor (240) pero
+**válida** (peso exacto de 15, justo en el límite).
+
+Esto demuestra que un fitness numéricamente más alto no garantiza una mejor
+solución real: si el factor de penalización es demasiado débil, la presión
+selectiva del AG puede terminar favoreciendo individuos inválidos generación
+tras generación, ya que estos "aparentan" ser más aptos que las soluciones que
+sí respetan las restricciones del problema.
