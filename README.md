@@ -4,8 +4,8 @@
 **Docente:** Fabio Alejandro Sastoque Rincón
 
 ## Integrantes
-- (Tu nombre) — Ejercicios 1 y 2
-- (Nombre de tu compañero) — Ejercicios 3 y 4
+- EDWAR FONTECHA — Ejercicios 1 y 2
+- DANIEL CHAVEZ — Ejercicios 3 y 4
 
 ## Descripción
 Este repositorio implementa un Algoritmo Genético (AG) genérico con genotipo binario,
